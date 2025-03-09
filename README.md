@@ -19,7 +19,7 @@ It integrates with the VIES API to verify VAT numbers and dynamically adjusts ta
 
 ## Installation
 
-1. **Clone the Repository**  
+1. **Install with composer**  
  ```bash
    composer require bagisto-eu/vies
 ```
