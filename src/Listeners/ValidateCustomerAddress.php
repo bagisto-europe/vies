@@ -16,6 +16,14 @@ class ValidateCustomerAddress
 
     public function handle($event)
     {
+        $status = core()->getConfigData('sales.taxes.vies.status');
+
+        $ValidateCompany = core()->getConfigData('sales.taxes.vies.validate_company_name');
+
+        if (! $status && ! $ValidateCompany) {
+            return;
+        }
+
         $customerAddress = $event;
         $customer = $customerAddress->customer;
 

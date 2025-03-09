@@ -19,6 +19,12 @@ class ApplyReverseChargeVAT
      */
     public function handle($event)
     {
+        $status = core()->getConfigData('sales.taxes.vies.status');
+
+        if (! $status) {
+            return;
+        }
+
         if ($event instanceof CartItem) {
             $this->taxCalculator->applyReverseChargeVAT($event->cart);
         } elseif (method_exists($event, 'getAttribute')) {
