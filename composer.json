@@ -1,0 +1,36 @@
+{
+    "name": "bagisto-eu/vies",
+    "description": "VAT number validation and reverse charge VAT handling for European businesses using Bagisto",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bagisto Europe",
+            "email": "info@bagisto.eu"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/bagisto-europe/vies/issues",
+        "forum":  "https://forums.bagisto.com",
+        "source": "https://github.com/bagisto-europe/vies",
+        "docs":   "https://github.com/bagisto-europe/vies"
+    },
+    "require": {
+        "php": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bagisto\\Vies\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Bagisto\\Vies\\Providers\\ViesServiceProvider"
+            ],
+            "aliases": {}
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
