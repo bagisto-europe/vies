@@ -24,7 +24,7 @@ It integrates with the VIES API to verify VAT numbers and dynamically adjusts ta
    composer require bagisto-eu/vies
 ```
 
-Run the following command to cache the config
+2. **Run the following command to cache the config**
 
 ```bash
 php artisan optimize
