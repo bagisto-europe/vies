@@ -30,7 +30,7 @@ php artisan optimize
 ```
 
 ## Configuration
-Once installed, configure the package in your Bagisto admin panel under Sales > Taxes > VIES Validation.
+Once installed, configure the package in your Bagisto admin panel under **Sales > Taxes > VIES Validation**.
 
 ![configuration](docs/configure.png)
 
