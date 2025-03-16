@@ -3,7 +3,8 @@
 namespace Bagisto\Vies\Listeners;
 
 use Bagisto\Vies\Services\TaxCalculator;
-use Webkul\Checkout\Models\CartItem;
+use Illuminate\Support\Facades\Log;
+use Webkul\Checkout\Models\Cart;
 
 class ApplyReverseChargeVAT
 {
@@ -25,9 +26,8 @@ class ApplyReverseChargeVAT
             return;
         }
 
-        if ($event instanceof CartItem) {
-            $this->taxCalculator->applyReverseChargeVAT($event->cart);
-        } elseif (method_exists($event, 'getAttribute')) {
+        if ($event instanceof Cart) {
+            Log::debug('VIES: Processing Cart object directly');
             $this->taxCalculator->applyReverseChargeVAT($event);
         }
     }

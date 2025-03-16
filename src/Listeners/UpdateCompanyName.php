@@ -5,7 +5,7 @@ namespace Bagisto\Vies\Listeners;
 use Bagisto\Vies\Services\TaxCalculator;
 use Illuminate\Support\Facades\Log;
 
-class ValidateCustomerAddress
+class UpdateCompanyName
 {
     private $taxCalculator;
 
@@ -18,15 +18,13 @@ class ValidateCustomerAddress
     {
         $status = core()->getConfigData('sales.taxes.vies.status');
 
-        $ValidateCompany = core()->getConfigData('sales.taxes.vies.validate_company_name');
+        $ValidateCompany = core()->getConfigData('sales.taxes.vies.update_company_name');
 
         if (! $status && ! $ValidateCompany) {
             return;
         }
 
-        $customerAddress = $event;
-        $customer = $customerAddress->customer;
-
+        $customerAddress = $event->customer;
         $countryCode = strtoupper($customerAddress->country);
 
         if ($this->taxCalculator->isEuCountry($countryCode)) {
@@ -49,11 +47,13 @@ class ValidateCustomerAddress
                 if ($vatDetails) {
                     $customerAddress->company_name = $vatDetails['name'];
                     $customerAddress->save();
-
-                    Log::info("VAT details updated for customer ID: {$customer->id}");
                 }
             } else {
-                Log::warning("Invalid VAT number for customer ID: {$customer->id}.");
+                Log::warning("Invalid VAT number for customer ID: {$customerAddress->id}.");
+
+                session()->flash('error', trans('vies::app.customers.account.addresses.invalid-vat', ['vat' => $vatId]));
+
+                abort(redirect()->back());
             }
         }
     }

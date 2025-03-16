@@ -8,6 +8,9 @@ class ViesServiceProvider extends ServiceProvider
 {
     public function boot()
     {
+
+        $this->loadTranslationsFrom(dirname(__DIR__).'/Resources/lang', 'vies');
+
         $this->publishes([__DIR__.'/Config/vies.php' => config_path('vies.php')], 'config');
     }
 
