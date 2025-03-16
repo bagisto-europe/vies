@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.0] - 16/03/2025
+## [1.0.0] - 16/03/2025
 
 ### Added
 - **Exclude Product Types Option**: Added the option to configure excluded product types from reverse charge VAT.
