@@ -12,10 +12,9 @@
 This package enables VAT number validation and reverse charge VAT handling for European businesses using Bagisto.  
 It integrates with the VIES API to verify VAT numbers and dynamically adjusts tax calculations during checkout.
 
-## Features
+## Changelog
 
-- ✅ Uses VIES API for real-time VAT validation.  
-- ✅ Automatically applies Reverse Charge VAT for B2B transactions in the EU.
+Please refer to the [Changelog](CHANGELOG.md) for detailed information on new features, fixes, and updates.
 
 ## Installation
 
