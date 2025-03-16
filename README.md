@@ -29,5 +29,10 @@ Please refer to the [Changelog](CHANGELOG.md) for detailed information on new fe
 php artisan optimize
 ```
 
+## Configuration
+Once installed, configure the package in your Bagisto admin panel under Sales > Taxes > VIES Validation.
+
+![configuration](docs/configure.png)
+
 ## Support
 If you encounter any issues or have questions about this package, please reach out to our support team at [info@bagisto.eu](mailto:info@bagisto.eu). We're here to assist you.
